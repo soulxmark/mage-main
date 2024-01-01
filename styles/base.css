@@ -1,0 +1,125 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.parallax-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.parallax-layer:nth-child(1) {
+    background-image: url('images\img.jpg.jpg'); /* Replace with your image */
+    z-index: 3;
+}
+
+.parallax-layer:nth-child(2) {
+    background-image: url('layer2.jpg'); /* Replace with your image */
+    z-index: 2;
+}
+
+.parallax-layer:nth-child(3) {
+    background-image: url('layer3.jpg'); /* Replace with your image */
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 4;
+    text-align: center;
+    padding: 50px;
+    color: #fff;
+}
+/* Existing styles... */
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('hero-bg.jpg') center/cover no-repeat; /* Replace with your hero background image */
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.5em;
+}
+
+
+/* Existing styles... */
+
+.navbar {
+    background-color: #333;
+    padding: 10px;
+    width: 100%;
+    z-index: 5;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.menu-btn {
+    display: none; /* Hide the button by default for larger screens */
+    font-size: 1.2em;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-list li {
+    margin: 0 15px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        display: block; /* Show the button for smaller screens */
+    }
+
+    .nav-list {
+        display: none; /* Hide the navigation list by default for smaller screens */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        text-align: center;
+    }
+
+    .nav-list.show {
+        display: flex; /* Show the navigation list when the menu is toggled */
+    }
+}
