@@ -3,6 +3,12 @@
     body {
       font-size: 18px;
       width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .hero{
+      width: 100%;
+      
     }
     .hero-content{
     
@@ -13,7 +19,8 @@
       text-decoration: none;
       gap: 20px;
       text-align: left;
-      font-size: 15px;
+      font-size: 10px;
+    
   }
   .hero-content-image{
     position: absolute;
