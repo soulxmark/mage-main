@@ -1,0 +1,8 @@
+@media only screen and (min-width: 1200px) {
+    /* Styles specific to large view */
+    body {
+      font-size: 18px;
+    }
+  
+    /* Add more styles as needed for large view */
+  }
