@@ -1,31 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Animation</title>
+
+  <!-- Add this link to include Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  
   <style>
+    /* Add some styles for better visibility */
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
+      font-family: Arial, sans-serif;
     }
 
-    .zoom-link {
-      font-size: 18px;
-      color: #333;
-      text-decoration: none;
-      transition: transform 0.3s ease;
+    .parallax-container {
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
     }
 
-    .zoom-link:hover {
-      transform: scale(1.1); /* Adjust the scale factor as needed */
+    .parallax-layer {
+      height: 100%;
+      width: 100%;
+      background-color: #e0e0e0;
+    }
+
+    .education {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .content-gridlayout {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .grid-item-sti,
+    .grid-item-byup,
+    .grid-item-byui,
+    .grid-item-actcl {
+      width: 300px;
+      margin: 20px;
+      padding: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
   </style>
-  <title>Zoom In Link</title>
 </head>
+
 <body>
-  <a href="#" class="zoom-link">Your Text Here</a>
+  <div class="parallax-container" id="parallax">
+    <div class="parallax-layer" data-speed="2"></div>
+    <div class="parallax-layer" data-speed="1"></div>
+    <div class="parallax-layer" data-speed="0.5"></div>
+    <hr>
+    <div class="education animate__animated animate__fadeInUp">
+      <h2>Education</h2>
+    </div>
+    <div class="content-gridlayout" id="content">
+      <!--STI Muñoz-->
+      <div class="grid-item-sti">
+        <h4>STI Muñoz</h4>
+        <img src="./images/sti.png" alt="sti">
+        <article>
+          <strong>Degree: ITMAWD Information Technology Mobile App Web Development (Grade 12)</strong>
+          <p>Graduated on April 3, 2018, with expertise in Windows-based applications, including .NET C#, Java,
+            Android development, HTML, CSS, JavaScript, and jQuery. Notable projects include Android riddles and
+            C# UI form for a shop.</p>
+        </article>
+      </div>
+      <!--BYU Pathway-->
+      <div class="grid-item-byup">
+        <h4>BYU Pathway Worldwide</h4>
+        <img src="./images/pathway.gif" alt="sti">
+        <article>
+          <strong>Certificate: BYU Completion</strong>
+          <p>In December 2022, I earned a certificate that encompassed various subjects, such as life skills, algebra,
+            English, and personal finance. Additionally, I delved into the basics of Python programming during this
+            period.</p>
+        </article>
+        <a href="https://drive.google.com/file/d/11EGVudUuNXVjUHVyHHqUyXMRGR_zsDZT/view?usp=sharing"
+          download="downloaded_file.txt" class="button">
+          <span class="icon"><i class="fas fa-download"></i></span>
+          Download Certificate
+        </a>
+      </div>
+      <!--BYU Idaho-->
+      <div class="grid-item-byui">
+        <h4>BYU Idaho</h4>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Brigham_Young_University%E2%80%93Idaho_medallion.svg/800px-Brigham_Young_University%E2%80%93Idaho_medallion.svg.png"
+          alt="sti">
+        <article>
+          <strong>Certificate: BYU Completion Web Development</strong>
+          <p>In 2023, I earned a Web Development certificate, excelling in HTML, CSS, and JavaScript. I use GitHub for
+            collaboration, applying JavaScript libraries and APIs to streamline data organization in the UI, demonstrated
+            through practical website examples.</p>
+        </article>
+      </div>
+      <!--ACTFL-->
+      <div class="grid-item-actcl">
+        <h4>ACTFL</h4>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9ieOo9e27sBmBraBSv2Aijb1JQue1STsLWou9ed7M1waKQ1AxpfxZmZ_nMdctd4mfKA&usqp=CAU"
+          alt="sti">
+        <article>
+          <strong>Certificate: ACTFL</strong>
+          <p>In 2021, I took an exam at the Mission for English Proficiency. During the course, they instructed us on
+            basic grammar, simple conversation, and polite language usage.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var educationElement = document.querySelector('.education');
+      var options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2,
+      };
+
+      var callback = function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            educationElement.classList.add('animate__fadeInUp');
+            observer.disconnect();
+          }
+        });
+      };
+
+      var observer = new IntersectionObserver(callback, options);
+      observer.observe(educationElement);
+    });
+  </script>
 </body>
+
 </html>

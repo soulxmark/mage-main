@@ -15,6 +15,7 @@ body, html {
     height: 100%;
     font-family: 'Belanosima', sans-serif;
     font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
 }
 
 .parallax-container {
@@ -215,14 +216,14 @@ ul {
 }
 .hero-content-image{
     position: absolute;
-    top: 50%;
+    top: 55%;
     right: 25%;
     transform: translate(50%, -50%);
     text-align: right;
 }
 .hero-content-image img{
-      width: 400px; /* Set the width and height to create a square */
-      height: 400px;
+      width: 300px; /* Set the width and height to create a square */
+      height: 300px;
       border-radius: 50%; /* Make it a circle by setting border-radius to 50% */
       border: 2px ; /* Add a border if desired */
       background-image: url('https://raw.githubusercontent.com/soulxmark/mage-main/main/images/bg-img-hero.webp');
@@ -348,7 +349,36 @@ footer {
     margin-top: 20px;
     font-size: 14px;
   }
-
+  /*Animation Section*/
+  section {
+    height: 100vh;
+  }
+  
+  
+  .tag {
+    opacity: 0;
+    transform: translate(0, 10vh);
+    transition: all 1s;
+  }
+  
+  .tag.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  
+  .yellow {
+    background-color: lightyellow;
+  }
+  .red {
+    background-color: lightcoral;
+  }
+  .blue {
+    background-color: lightblue;
+  }
+  .green {
+    background-color: lightgreen;
+  }
+  
 @media screen and (max-width: 768px) {
     main{
         display: grid;
