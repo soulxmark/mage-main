@@ -214,6 +214,7 @@ ul {
     gap: 20px;
     text-align: left;
     font-size: 15px;
+    width: 30%;
 }
 .hero-content-image{
     position: absolute;
