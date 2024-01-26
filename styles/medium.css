@@ -14,11 +14,14 @@
     .hero{
         display: block;
         max-width: 100%;
+        margin: 0;
+        padding: 0;
     }
-    .hero-content,
+        .hero-content,
         .hero-content-image {
-            width: 100%;
+            width: 50%;
             float: none;
+            font-size: 20px;
         }
   }
   
