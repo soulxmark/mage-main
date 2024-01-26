@@ -3,62 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parallax Fade Out</title>
   <style>
     body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       margin: 0;
-      padding: 0;
-      overflow-x: hidden; /* Hide horizontal scrollbar */
-      font-family: Arial, sans-serif;
     }
 
-    .parallax-container {
-      position: relative;
-      height: 200vh; /* Increased height for more content */
-      overflow: hidden;
+    .zoom-link {
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+      transition: transform 0.3s ease;
     }
 
-    .parallax-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: #fff;
-      font-size: 24px;
-      width: 80%;
-    }
-
-    .parallax-fade {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 20%; /* Width of the fading area */
-      height: 100%;
-      background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* Fading gradient */
-      pointer-events: none; /* Make sure the fade layer doesn't block interactions */
+    .zoom-link:hover {
+      transform: scale(1.1); /* Adjust the scale factor as needed */
     }
   </style>
+  <title>Zoom In Link</title>
 </head>
 <body>
-
-<div class="parallax-container">
-  <div class="parallax-fade"></div>
-  <div class="parallax-content">
-    <h1>Your Title</h1>
-    <p>Your content goes here. Add more paragraphs, images, or any other elements you want.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec odio sit amet libero vehicula fermentum ac eget nisl. Integer sodales urna a ipsum suscipit, at hendrerit massa fringilla. Vestibulum luctus libero sed mi pharetra, a ullamcorper nulla interdum.</p>
-    <!-- Add more content as needed -->
-  </div>
-</div>
-
-<script>
-  window.addEventListener('scroll', function() {
-    const scrollPosition = window.scrollY;
-    const fadeElement = document.querySelector('.parallax-fade');
-    fadeElement.style.width = (20 + scrollPosition / window.innerWidth * 100) + '%';
-  });
-</script>
-
+  <a href="#" class="zoom-link">Your Text Here</a>
 </body>
 </html>
