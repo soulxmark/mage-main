@@ -1,128 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parallax Hamburger Navigation</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Arial', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Fade Out</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Hide horizontal scrollbar */
+      font-family: Arial, sans-serif;
+    }
 
-        .parallax-container {
-            height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
+    .parallax-container {
+      position: relative;
+      height: 200vh; /* Increased height for more content */
+      overflow: hidden;
+    }
 
-        .parallax {
-            background-image: url('your-parallax-image.jpg'); /* Replace with your image */
-            background-size: cover;
-            background-position: center;
-            height: 100%;
-            transform: translate3d(0, 0, 0);
-        }
+    .parallax-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      font-size: 24px;
+      width: 80%;
+    }
 
-        .navbar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-            z-index: 1;
-        }
-
-        .navbar-toggle {
-            cursor: pointer;
-            display: none;
-        }
-
-        .bar {
-            display: block;
-            width: 30px;
-            height: 3px;
-            background-color: #000;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
-
-        .nav-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .nav-list li {
-            margin: 0 15px;
-        }
-
-        .nav-list a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-        }
-
-        @media screen and (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-list {
-                flex-direction: column;
-                align-items: center;
-                background-color: #333; /* Background color for the mobile navigation */
-                position: absolute;
-                top: 70px; /* Adjust as needed */
-                left: 0;
-                width: 100%;
-                text-align: center;
-                display: none;
-            }
-
-            .nav-list.show {
-                display: flex;
-            }
-
-            .navbar-toggle {
-                display: block;
-            }
-        }
-    </style>
+    .parallax-fade {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20%; /* Width of the fading area */
+      height: 100%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* Fading gradient */
+      pointer-events: none; /* Make sure the fade layer doesn't block interactions */
+    }
+  </style>
 </head>
 <body>
-    <div class="parallax-container">
-        <div class="parallax"></div>
-        <nav class="navbar">
-            <div class="navbar-toggle" id="navbar-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-list">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#navbar-toggle').click(function() {
-                $('.nav-list').toggleClass('show');
-            });
-        });
-    </script>
+<div class="parallax-container">
+  <div class="parallax-fade"></div>
+  <div class="parallax-content">
+    <h1>Your Title</h1>
+    <p>Your content goes here. Add more paragraphs, images, or any other elements you want.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec odio sit amet libero vehicula fermentum ac eget nisl. Integer sodales urna a ipsum suscipit, at hendrerit massa fringilla. Vestibulum luctus libero sed mi pharetra, a ullamcorper nulla interdum.</p>
+    <!-- Add more content as needed -->
+  </div>
+</div>
+
+<script>
+  window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const fadeElement = document.querySelector('.parallax-fade');
+    fadeElement.style.width = (20 + scrollPosition / window.innerWidth * 100) + '%';
+  });
+</script>
+
 </body>
 </html>
