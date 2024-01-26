@@ -15,5 +15,10 @@
         display: block;
         max-width: 100%;
     }
+    .hero-content,
+        .hero-content-image {
+            width: 100%;
+            float: none;
+        }
   }
   
