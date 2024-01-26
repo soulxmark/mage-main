@@ -1,4 +1,4 @@
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 64em)  {
     /* Styles for medium-sized screens (e.g., tablets) */
     /* Add your styles here */
     body,html{
@@ -19,9 +19,9 @@
     }
         .hero-content,
         .hero-content-image {
-            width: 40%;
+            width: 50%;
             float: none;
-            font-size: 20px;
+            font-size: 1em;
         }
   }
   
